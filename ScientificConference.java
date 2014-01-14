@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 
-public class ScientificConferenceTree{
+public class ScientificConference{
 		
 	static int getFinalResult(ArrayList<Integer> SumsV){
 		int finalResult = 0;
