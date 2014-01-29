@@ -128,6 +128,7 @@ public class ScientificConference{
 			printMultiDimList(list2D);
 			while(!doneList(list2D)){					
 				max = 1;
+				boolean doneSearching = true;
 				for (int i=0;i<list2D.size();i++){				
 					for (int j=0;j<list2D.get(i).size();j++){
 						count[list2D.get(i).get(j)]++;
@@ -142,16 +143,23 @@ public class ScientificConference{
 					break;
 				}else{					
 					for (int i=0;i<list2D.size();i++){
+						doneSearching = true;
 						for (int j=0;j<list2D.get(i).size();j++){
 							if(list2D.get(i).get(j)==positionForMax){
 								list2D.get(i).remove(j);
+								doneSearching = false;
 								j--;
 							}
+						}
+						if (doneSearching){
+							System.out.println("move on " +positionForMax+" i: "+i);
+							//break;
 						}
 					}
 					count = new int[100000];
 				}
-			}								
+			}
+			printMultiDimList(list2D);			
 			/**STEP 2*/
 			ArrayList<Integer> vec = new ArrayList<Integer>();
 			for (int i=0;i<list2D.size();i++){
@@ -161,8 +169,8 @@ public class ScientificConference{
 					vec.add(0);
 				}
 			}						
-			/**STEP 3*/		
-			int finalResult = getFinalResult(vec);							
+			/**STEP 3*/			
+			int finalResult = getFinalResult(vec);										
 			System.out.println(finalResult);
 		}catch(IOException e){
 			System.out.println("Got an exception");

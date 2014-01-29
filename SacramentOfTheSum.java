@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Main 
+public class SacramentOfTheSum 
 {
    
     public static void SacramentOfTheSum(String args[])

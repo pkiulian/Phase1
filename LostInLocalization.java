@@ -1,5 +1,5 @@
 import java.io.*;
-public class Main {
+public class LostInLocalization {
 	public static void main(String[] str){
 	    BufferedReader br = new BufferedReader(new InputStreamReader(System.in) );
 	    try {

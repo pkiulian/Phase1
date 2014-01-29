@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.text.DecimalFormat;
 
 
-public class Problem1263Elections{
+public class Elections{
 	public static void main(String[] args){
 		int N=1; 
 		int M=1;

@@ -6,9 +6,13 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 
-public class Staircases{
-	static long matrix[][] = new long[501][501];
+/**
+ * @author peca
+ *
+ */
+public class Staircases{	
 	public static void main(String []args){
+		long matrix[][] = new long[501][501];
 		String s="";
 		int N;
 		try{
@@ -20,24 +24,27 @@ public class Staircases{
 			e.printStackTrace();
 		}
 		N = Integer.parseInt(s);
- 		
+ 		matrix = computeMatrix(matrix, N);					
+		System.out.println(sum(matrix, N,0,N));
+			
+	}
+	
+	private static long[][] computeMatrix(long[][] matrix, int N) {
 		for (int i=2;i<=N;i++){
 			int k=i-1;
 			for (int j=1;j<=N;j++){						
 				if (k+j==i && k>j){					
-					matrix[i][j]=1+sum(k,j+1,N);
+					matrix[i][j]=1+sum(matrix, k,j+1,N);
 				}else{
 					break;
 				}
 				k--;
 			}
 		}
-		System.out.println(sum(N,0,N));
-		//printMatrix(N, N);
-		
-		
+		return matrix;
 	}
-	public static long sum (int n, int m, int N){
+
+	public static long sum (long[][] matrix, int n, int m, int N){
 		long result = 0;
 		int k = m;
 		do{
@@ -45,13 +52,5 @@ public class Staircases{
 			k++;
 		}while (k<N && matrix[n][k]>0);
 		return result;
-	}
-	public static void printMatrix(int N, int M){
-		for (int i=1;i<=N;i++){
-			for (int j=1;j<=M;j++){
-				System.out.print(matrix[i][j]+" ");
-			}
-			System.out.println();
-		}
 	}
 }	
